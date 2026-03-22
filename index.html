@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пройденных игр</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Список пройденных игр</h1>
+    </header>
+
+    <form method="POST">
+        <input type="text" name="game" placeholder="Название игры" required>
+        <input type="number" name="year" placeholder="Год издания" required>
+        <button type="submit" name="add">Добавить игру</button>
+        <button type="submit" name="clear">Очистить список</button>
+    </form>
+
+    <ul>
+        {% for g in games %}
+        <li><b>{{ g.game }}</b> — {{ g.year }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
